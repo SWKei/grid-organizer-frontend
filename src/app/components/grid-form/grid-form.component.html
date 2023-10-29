@@ -1,0 +1,17 @@
+<div *ngIf="grid">
+  <h2>{{ grid.name }}</h2>
+  <div>Namn: <input type="text" [(ngModel)]="grid.name" /></div>
+
+  <div class="input-item" *ngFor="let item of grid.gridItems; let i = index">
+    <input
+      type="text"
+      [id]="'input-' + i"
+      [name]="'input-' + i"
+      [(ngModel)]="item.status"
+    />
+  </div>
+
+  <button (click)="updateGrid(grid)" *ngIf="grid.id">Save</button>
+  <button (click)="deleteGrid(grid)" *ngIf="grid.id">Delete</button>
+  <button (click)="createGrid(grid)" *ngIf="!grid.id">Create</button>
+</div>
