@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Grid } from './models/grid';
 import { GridService } from './services/grid.service';
 import { GridResult } from './models/grid-result';
+import { GridItem } from './models/grid-item';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,10 @@ export class AppComponent {
 
   initNewGrid() {
     this.gridToEdit = new Grid();
+
+    // Set default status "None" (grey)
+    const gridItems: GridItem[] = new Array(25).fill({ status: 'None' });
+    this.gridToEdit.gridItems = gridItems;
   }
 
   editGrid(grid: Grid) {

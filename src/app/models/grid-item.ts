@@ -1,4 +1,4 @@
-export interface GridItem {
-  id: number;
-  status: string;
+export class GridItem {
+  id?: number;
+  status?: string;
 }
