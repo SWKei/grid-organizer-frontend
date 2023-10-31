@@ -1,0 +1,18 @@
+<div>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grid of grids">
+        <td>{{ grid.name }}</td>
+        <td><button (click)="selectGrid(grid)">Edit</button></td>
+        <td>
+          <button (click)="deleteGrid(grid)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

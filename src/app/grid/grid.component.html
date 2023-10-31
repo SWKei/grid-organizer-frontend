@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <app-grid-details
+      [selectedGrid]="selectedGrid"
+      (gridSaved)="saveGrid($event)"
+      (gridCancelled)="resetGrid()"
+    ></app-grid-details>
+  </div>
+  <div>
+    <app-grid-list
+      [grids]="(grids$ | async) || []"
+      (gridSelected)="selectGrid($event)"
+      (gridDeleted)="deleteGrid($event)"
+    ></app-grid-list>
+  </div>
+</div>
