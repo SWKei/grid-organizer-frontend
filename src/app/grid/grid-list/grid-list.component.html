@@ -1,16 +1,17 @@
 <div>
-  <table>
-    <thead>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-    </thead>
+  <table class="table">
     <tbody>
       <tr *ngFor="let grid of grids">
-        <td>{{ grid.name }}</td>
-        <td><button (click)="selectGrid(grid)">Edit</button></td>
-        <td>
-          <button (click)="deleteGrid(grid)">Delete</button>
+        <td class="col-md-8">{{ grid.name }}</td>
+        <td class="col-md-2">
+          <button class="btn btn-primary" (click)="selectGrid(grid)">
+            <i class="bi bi-pencil"></i>Edit
+          </button>
+        </td>
+        <td class="col-md-2">
+          <button class="btn btn-danger" (click)="deleteGrid(grid)">
+            <i class="bi bi-trash"></i>Delete
+          </button>
         </td>
       </tr>
     </tbody>

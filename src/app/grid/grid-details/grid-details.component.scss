@@ -1,4 +1,8 @@
-.button-container {
+.app-fixed-grid-height {
+  height: 450px;
+}
+
+.app-button-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Create 5 equal-width columns */
   grid-gap: 5px; /* Adjust the gap between buttons as needed */

@@ -7,42 +7,54 @@
   </div>
 
   <ng-template #elseBlock>
-    <button type="button" (click)="createNew()">Ccreate new</button>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary" type="button" (click)="createNew()">
+        Ccreate new
+      </button>
+    </div>
   </ng-template>
 </div>
 
-<form
-  *ngIf="currentGrid && (showForm || currentGrid?.id)"
-  #form="ngForm"
-  (submit)="saveGrid(currentGrid)"
->
-  <div>
+<div class="app-fixed-grid-height">
+  <form
+    *ngIf="currentGrid && (showForm || currentGrid?.id)"
+    #form="ngForm"
+    (submit)="saveGrid(currentGrid)"
+  >
     <label for="name">Name</label>
     <input
       type="text"
+      class="form-control"
       id="name"
       name="name"
       [(ngModel)]="currentGrid.name"
       required
       maxlength="50"
     />
-  </div>
 
-  <div class="button-container">
-    <ng-container *ngFor="let gridItem of currentGrid.gridItems; let i = index">
-      <button
-        type="button"
-        [id]="'button-' + (i + 1)"
-        [name]="'button-' + (i + 1)"
-        (click)="updateStatus(gridItem, i)"
+    <div class="app-button-container">
+      <ng-container
+        *ngFor="let gridItem of currentGrid.gridItems; let i = index"
       >
-        {{ gridItem.status }}
-      </button>
-    </ng-container>
-  </div>
+        <button
+          class="btn btn-secondary"
+          type="button"
+          [id]="'button-' + (i + 1)"
+          [name]="'button-' + (i + 1)"
+          (click)="updateStatus(gridItem, i)"
+        >
+          {{ gridItem.status }}
+        </button>
+      </ng-container>
+    </div>
 
-  <div>
-    <button [disabled]="form.invalid" type="submit">Save</button>
-    <button type="button" (click)="cancelGrid()">Cancel</button>
-  </div>
-</form>
+    <div>
+      <button class="btn btn-success" [disabled]="form.invalid" type="submit">
+        Save
+      </button>
+      <button class="btn btn-outline-dark" type="button" (click)="cancelGrid()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
