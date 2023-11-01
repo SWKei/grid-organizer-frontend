@@ -1,4 +1,4 @@
 export interface GridItem {
-  id: number | null;
+  id: number | undefined;
   status: string;
 }

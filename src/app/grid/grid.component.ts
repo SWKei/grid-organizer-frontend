@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 
 import { GridService } from '../services/grid.service';
 import { Grid } from '../models/grid';
+import { GridItem } from '../models/grid-item';
 
 @Component({
   selector: 'app-grid',
@@ -16,7 +17,7 @@ export class GridComponent implements OnInit {
   constructor(private gridService: GridService) {
     this.grids$ = of([]);
     this.selectedGrid = {
-      id: null,
+      id: undefined,
       name: '',
       gridItems: [],
     };
@@ -57,10 +58,22 @@ export class GridComponent implements OnInit {
   }
 
   resetGrid() {
+    // Each gridItem needs unique identity when creating a new grid.
+    // Changing the value in one <input> affects all the inputs otherwise with Angular two-way databinding
+    // Add a temporary property 'name' to solve the issue.
+
+    const gridItemsArray: GridItem[] = Array(25)
+      .fill({ id: undefined, status: 'None' })
+      .map((item, index) => ({
+        id: undefined,
+        name: `input-${index + 1}`,
+        status: item.status,
+      }));
+
     const emptyGrid: Grid = {
-      id: null,
+      id: undefined,
       name: '',
-      gridItems: Array(25).fill({ id: null, status: 'None' }),
+      gridItems: gridItemsArray,
     };
 
     this.selectGrid(emptyGrid);

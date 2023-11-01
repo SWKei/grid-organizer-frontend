@@ -1,7 +1,7 @@
 import { GridItem } from './grid-item';
 
 export interface Grid {
-  id: number | null;
+  id: number | undefined;
   name: string;
   gridItems: GridItem[];
 }
