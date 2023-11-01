@@ -1,13 +1,21 @@
 <div>
-  <span *ngIf="currentGrid?.id; else elseBlock">
-    {{ originalName | titlecase }}
-  </span>
+  <div *ngIf="currentGrid?.id; else elseBlock">
+    <span>Original Name: </span>
+    <span>
+      {{ originalName }}
+    </span>
+  </div>
+
   <ng-template #elseBlock>
-    Select a grid for editting or create a new
+    <button type="button" (click)="createNew()">Ccreate new</button>
   </ng-template>
 </div>
 
-<form *ngIf="currentGrid" #form="ngForm" (submit)="saveGrid(currentGrid)">
+<form
+  *ngIf="currentGrid && (showForm || currentGrid?.id)"
+  #form="ngForm"
+  (submit)="saveGrid(currentGrid)"
+>
   <div>
     <label for="name">Name</label>
     <input

@@ -21,6 +21,8 @@ export class GridDetailsComponent implements OnInit {
   originalName: string | undefined;
   currentGrid: Grid | undefined;
 
+  showForm: boolean = false;
+
   buttonLabels = ['None', 'Ok', 'Warning', 'Error'];
   statusIndex = 0;
 
@@ -28,12 +30,22 @@ export class GridDetailsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  createNew() {
+    this.showForm = true;
+  }
+
+  hideForm() {
+    this.showForm = false;
+  }
+
   saveGrid(grid: Grid) {
     this.gridSaved.emit(grid);
+    this.hideForm();
   }
 
   cancelGrid() {
     this.gridCancelled.emit();
+    this.hideForm();
   }
 
   updateStatus(gridItem: GridItem, index: number) {
