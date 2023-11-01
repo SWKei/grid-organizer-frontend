@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Grid } from 'src/app/models/grid';
+import { GridItem } from 'src/app/models/grid-item';
 
 @Component({
   selector: 'app-grid-details',
@@ -20,6 +21,9 @@ export class GridDetailsComponent implements OnInit {
   originalName: string | undefined;
   currentGrid: Grid | undefined;
 
+  buttonLabels = ['None', 'Ok', 'Warning', 'Error'];
+  statusIndex = 0;
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -30,5 +34,21 @@ export class GridDetailsComponent implements OnInit {
 
   cancelGrid() {
     this.gridCancelled.emit();
+  }
+
+  updateStatus(gridItem: GridItem, index: number) {
+    if (this.currentGrid) {
+      const status = gridItem.status;
+
+      if (status === 'None') {
+        this.currentGrid.gridItems[index].status = 'Ok';
+      } else if (status === 'Ok') {
+        this.currentGrid.gridItems[index].status = 'Warning';
+      } else if (status === 'Warning') {
+        this.currentGrid.gridItems[index].status = 'Error';
+      } else {
+        this.currentGrid.gridItems[index].status = 'None';
+      }
+    }
   }
 }

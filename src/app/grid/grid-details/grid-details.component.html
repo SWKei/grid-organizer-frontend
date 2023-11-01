@@ -19,135 +19,20 @@
       maxlength="50"
     />
   </div>
-  <div class="grid-row-1">
-    <input
-      type="text"
-      id="input-1"
-      name="input-1"
-      [(ngModel)]="currentGrid.gridItems[0].status"
-    />
-    <input
-      type="text"
-      id="input-2"
-      name="input-2"
-      [(ngModel)]="currentGrid.gridItems[1].status"
-    />
-    <input
-      type="text"
-      id="input-3"
-      name="input-3"
-      [(ngModel)]="currentGrid.gridItems[2].status"
-    />
-    <input
-      type="text"
-      id="input-4"
-      name="input-4"
-      [(ngModel)]="currentGrid.gridItems[3].status"
-    />
-    <input
-      type="text"
-      id="input-5"
-      name="input-5"
-      [(ngModel)]="currentGrid.gridItems[4].status"
-    />
+
+  <div class="button-container">
+    <ng-container *ngFor="let gridItem of currentGrid.gridItems; let i = index">
+      <button
+        type="button"
+        [id]="'button-' + (i + 1)"
+        [name]="'button-' + (i + 1)"
+        (click)="updateStatus(gridItem, i)"
+      >
+        {{ gridItem.status }}
+      </button>
+    </ng-container>
   </div>
-  <div class="grid-row-2">
-    <input
-      type="text"
-      id="input-6"
-      name="input-6"
-      [(ngModel)]="currentGrid.gridItems[5].status"
-    />
-    <input
-      type="text"
-      id="input-7"
-      name="input-7"
-      [(ngModel)]="currentGrid.gridItems[6].status"
-    />
-    <input
-      type="text"
-      id="input-8"
-      name="input-8"
-      [(ngModel)]="currentGrid.gridItems[7].status"
-    />
-    <input
-      type="text"
-      id="input-9"
-      name="input-9"
-      [(ngModel)]="currentGrid.gridItems[8].status"
-    />
-    <input
-      type="text"
-      id="input-10"
-      name="input-10"
-      [(ngModel)]="currentGrid.gridItems[9].status"
-    />
-  </div>
-  <div>
-    <input
-      type="text"
-      id="input-11"
-      name="input-11"
-      [(ngModel)]="currentGrid.gridItems[10].status"
-    />
-    <input
-      type="text"
-      id="input-12"
-      name="input-12"
-      [(ngModel)]="currentGrid.gridItems[11].status"
-    />
-    <input
-      type="text"
-      id="input-13"
-      name="input-13"
-      [(ngModel)]="currentGrid.gridItems[12].status"
-    />
-    <input
-      type="text"
-      id="input-14"
-      name="input-14"
-      [(ngModel)]="currentGrid.gridItems[13].status"
-    />
-    <input
-      type="text"
-      id="input-15"
-      name="input-15"
-      [(ngModel)]="currentGrid.gridItems[14].status"
-    />
-  </div>
-  <div>
-    <input
-      type="text"
-      id="input-16"
-      name="input-16"
-      [(ngModel)]="currentGrid.gridItems[15].status"
-    />
-    <input
-      type="text"
-      id="input-17"
-      name="input-17"
-      [(ngModel)]="currentGrid.gridItems[16].status"
-    />
-    <input
-      type="text"
-      id="input-18"
-      name="input-18"
-      [(ngModel)]="currentGrid.gridItems[17].status"
-    />
-    <input
-      type="text"
-      id="input-19"
-      name="input-19"
-      [(ngModel)]="currentGrid.gridItems[18].status"
-    />
-    <input
-      type="text"
-      id="input-20"
-      name="input-20"
-      [(ngModel)]="currentGrid.gridItems[19].status"
-    />
-  </div>
-  <div></div>
+
   <div>
     <button [disabled]="form.invalid" type="submit">Save</button>
     <button type="button" (click)="cancelGrid()">Cancel</button>
