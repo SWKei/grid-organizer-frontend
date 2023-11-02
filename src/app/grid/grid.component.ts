@@ -11,37 +11,42 @@ import { GridItem } from '../models/grid-item';
   styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit {
-  grids$: Observable<Grid[]>;
-  selectedGrid: Grid;
+  grids: Grid[] = [];
+  selectedGrid: Grid = {
+    id: undefined,
+    name: '',
+    gridItems: [],
+  };
 
-  constructor(private gridService: GridService) {
-    this.grids$ = of([]);
-    this.selectedGrid = {
-      id: undefined,
-      name: '',
-      gridItems: [],
-    };
-  }
+  constructor(private gridService: GridService) {}
 
   ngOnInit(): void {
     this.loadGrids();
   }
 
   loadGrids() {
-    this.grids$ = this.gridService.getAllGrids();
-    this.resetGrid();
+    this.gridService.getAllGrids().subscribe((grids) => {
+      this.grids = grids;
+      this.resetGrid();
+    });
   }
 
   updateGrid(grid: Grid) {
-    this.grids$ = this.gridService.updateGrid(grid);
+    this.gridService.updateGrid(grid).subscribe((grids) => {
+      this.grids = grids;
+    });
   }
 
   createGrid(grid: Grid) {
-    this.grids$ = this.gridService.createGrid(grid);
+    this.gridService.createGrid(grid).subscribe((grids) => {
+      this.grids = grids;
+    });
   }
 
   deleteGrid(grid: Grid) {
-    this.grids$ = this.gridService.deleteGrid(grid);
+    this.gridService.deleteGrid(grid).subscribe((grids) => {
+      this.grids = grids;
+    });
   }
 
   selectGrid(grid: Grid) {

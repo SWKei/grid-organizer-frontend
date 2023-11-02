@@ -8,7 +8,7 @@
   </div>
   <div>
     <app-grid-list
-      [grids]="(grids$ | async) || []"
+      [grids]="grids"
       (gridSelected)="selectGrid($event)"
       (gridDeleted)="deleteGrid($event)"
     ></app-grid-list>
