@@ -97,5 +97,7 @@
       }
     }
   },
-  "defaultProject": "grid-organizer-frontend"
+  "cli": {
+    "analytics": false
+  }
 }
