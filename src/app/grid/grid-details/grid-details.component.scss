@@ -1,3 +1,5 @@
+@import "bootstrap/scss/bootstrap";
+
 .app-fixed-grid-height {
   height: 450px;
 }
@@ -6,4 +8,32 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Create 5 equal-width columns */
   grid-gap: 5px; /* Adjust the gap between buttons as needed */
+}
+
+.app-none-button {
+  background-color: $gray-600;
+  &:hover {
+    background-color: $gray-700;
+  }
+}
+
+.app-ok-button {
+  background-color: $green;
+  &:hover {
+    background-color: $green-700;
+  }
+}
+
+.app-warning-button {
+  background-color: $orange;
+  &:hover {
+    background-color: $orange-700;
+  }
+}
+
+.app-error-button {
+  background-color: $red;
+  &:hover {
+    background-color: $red-700;
+  }
 }

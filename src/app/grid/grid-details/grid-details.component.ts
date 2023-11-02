@@ -20,11 +20,7 @@ export class GridDetailsComponent implements OnInit {
 
   originalName: string | undefined;
   currentGrid: Grid | undefined;
-
   showForm: boolean = false;
-
-  buttonLabels = ['None', 'Ok', 'Warning', 'Error'];
-  statusIndex = 0;
 
   constructor() {}
 
@@ -52,15 +48,28 @@ export class GridDetailsComponent implements OnInit {
     if (this.currentGrid) {
       const status = gridItem.status;
 
-      if (status === 'None') {
-        this.currentGrid.gridItems[index].status = 'Ok';
-      } else if (status === 'Ok') {
-        this.currentGrid.gridItems[index].status = 'Warning';
-      } else if (status === 'Warning') {
-        this.currentGrid.gridItems[index].status = 'Error';
-      } else {
-        this.currentGrid.gridItems[index].status = 'None';
+      switch (status) {
+        case 'None':
+          this.currentGrid.gridItems[index].status = 'Ok';
+          break;
+        case 'Ok':
+          this.currentGrid.gridItems[index].status = 'Warning';
+          break;
+        case 'Warning':
+          this.currentGrid.gridItems[index].status = 'Error';
+          break;
+        default:
+          this.currentGrid.gridItems[index].status = 'None';
       }
     }
+  }
+
+  getStatusClasses(status: string): { [key: string]: boolean } {
+    return {
+      'app-none-button': status === 'None',
+      'app-ok-button': status === 'Ok',
+      'app-warning-button': status === 'Warning',
+      'app-error-button ': status === 'Error',
+    };
   }
 }

@@ -1,18 +1,15 @@
 <div>
-  <div *ngIf="currentGrid?.id; else elseBlock">
+  <div class="d-flex justify-content-end" *ngIf="!showForm && !currentGrid?.id">
+    <button class="btn btn-primary" type="button" (click)="createNew()">
+      Ccreate new
+    </button>
+  </div>
+  <div *ngIf="currentGrid?.id">
     <span>Original Name: </span>
     <span>
       {{ originalName }}
     </span>
   </div>
-
-  <ng-template #elseBlock>
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-primary" type="button" (click)="createNew()">
-        Ccreate new
-      </button>
-    </div>
-  </ng-template>
 </div>
 
 <div class="app-fixed-grid-height">
@@ -42,6 +39,7 @@
           [id]="'button-' + (i + 1)"
           [name]="'button-' + (i + 1)"
           (click)="updateStatus(gridItem, i)"
+          [ngClass]="getStatusClasses(gridItem.status)"
         >
           {{ gridItem.status }}
         </button>
