@@ -4,7 +4,7 @@ import { GridComponent } from './grid.component';
 
 const routes: Routes = [
   {
-    path: 'edit-my-grid',
+    path: 'create-and-edit-my-grid',
     component: GridComponent,
   },
 ];

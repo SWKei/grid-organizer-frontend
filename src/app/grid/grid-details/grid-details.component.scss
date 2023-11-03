@@ -1,39 +1,94 @@
 @import "bootstrap/scss/bootstrap";
+@import "app-settings";
+@import "app-mixins";
 
-.app-fixed-grid-height {
-  height: 450px;
-}
+.app-grid-details {
+  .app-create-new {
+    height: app-remy(450px);
+    border: app-remy(1px) solid;
+    border-color: $gray-500;
+    border-radius: app-remy(16px);
+  }
 
-.app-button-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Create 5 equal-width columns */
-  grid-gap: 5px; /* Adjust the gap between buttons as needed */
-}
+  .app-form {
+    .app-name-input {
+      display: flex;
+      justify-content: center;
 
-.app-none-button {
-  background-color: $gray-600;
-  &:hover {
-    background-color: $gray-700;
+      .app-name-content {
+        width: app-remy(600px);
+      }
+    }
+
+    .app-custom-2 {
+      width: 20% !important;
+    }
+
+    .app-custom-10 {
+      width: 80% !important;
+    }
+
+    .app-grid-status-container {
+      display: flex;
+      justify-content: center;
+
+      .app-status-button-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: app-remy(5px);
+
+        width: app-remy(600px);
+        height: app-remy(600px);
+
+        @include app-breakpoint-range(xs, md) {
+          width: app-remy(400px);
+          height: app-remy(400px);
+        }
+
+        .app-none-button {
+          background-color: $gray-600;
+          &:hover {
+            background-color: $gray-700;
+          }
+        }
+
+        .app-ok-button {
+          background-color: $green;
+          &:hover {
+            background-color: $green-700;
+          }
+        }
+
+        .app-warning-button {
+          background-color: $orange;
+          &:hover {
+            background-color: $orange-700;
+          }
+        }
+
+        .app-error-button {
+          background-color: $red;
+          &:hover {
+            background-color: $red-700;
+          }
+        }
+      }
+    }
+
+    .app-save-cancel-button-container {
+      display: flex;
+      justify-content: flex-end;
+      .btn {
+        width: app-remy(180px);
+
+        @include app-breakpoint-range(xs, md) {
+          width: app-remy(100px);
+        }
+      }
+    }
   }
 }
 
-.app-ok-button {
-  background-color: $green;
-  &:hover {
-    background-color: $green-700;
-  }
-}
-
-.app-warning-button {
-  background-color: $orange;
-  &:hover {
-    background-color: $orange-700;
-  }
-}
-
-.app-error-button {
-  background-color: $red;
-  &:hover {
-    background-color: $red-700;
-  }
+.app-empty-div {
+  visibility: hidden;
 }

@@ -1,0 +1,15 @@
+@import "app-settings";
+@import "app-mixins";
+
+.app-grid-list {
+  .btn {
+    width: app-remy(180px);
+
+    @include app-breakpoint-range(xs, md) {
+      width: app-remy(100px);
+    }
+    i.bi {
+      margin-right: app-remy(5px);
+    }
+  }
+}

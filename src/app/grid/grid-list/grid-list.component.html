@@ -1,4 +1,4 @@
-<div>
+<div class="app-grid-list">
   <table class="table">
     <tbody>
       <tr *ngFor="let grid of pagedGrids">
@@ -16,10 +16,11 @@
       </tr>
     </tbody>
   </table>
-
-  <ngb-pagination
-    [collectionSize]="grids.length"
-    [(page)]="currentPage"
-    [pageSize]="itemsPerPage"
-  ></ngb-pagination>
+  <div class="d-flex justify-content-center">
+    <ngb-pagination
+      [collectionSize]="grids.length"
+      [(page)]="currentPage"
+      [pageSize]="itemsPerPage"
+    ></ngb-pagination>
+  </div>
 </div>

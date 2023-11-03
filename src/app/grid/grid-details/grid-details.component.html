@@ -1,58 +1,78 @@
-<div>
-  <div class="d-flex justify-content-end" *ngIf="!showForm && !currentGrid?.id">
-    <button class="btn btn-primary" type="button" (click)="createNew()">
-      Ccreate new
+<div class="app-grid-details">
+  <div
+    class="my-5 d-flex justify-content-center align-items-center app-create-new"
+    *ngIf="!showForm && !currentGrid?.id"
+  >
+    <button class="btn btn-primary btn-lg" type="button" (click)="createNew()">
+      Create new
     </button>
   </div>
-  <div *ngIf="currentGrid?.id">
-    <span>Original Name: </span>
-    <span>
-      {{ originalName }}
-    </span>
-  </div>
-</div>
 
-<div class="app-fixed-grid-height">
-  <form
-    *ngIf="currentGrid && (showForm || currentGrid?.id)"
-    #form="ngForm"
-    (submit)="saveGrid(currentGrid)"
-  >
-    <label for="name">Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="name"
-      name="name"
-      [(ngModel)]="currentGrid.name"
-      required
-      maxlength="50"
-    />
+  <div class="my-4 app-form">
+    <div class="d-flex justify-content-center" *ngIf="currentGrid?.id">
+      <h3>
+        {{ originalName }}
+      </h3>
+    </div>
 
-    <div class="app-button-container">
-      <ng-container
-        *ngFor="let gridItem of currentGrid.gridItems; let i = index"
-      >
-        <button
-          class="btn btn-secondary"
-          type="button"
-          [id]="'button-' + (i + 1)"
-          [name]="'button-' + (i + 1)"
-          (click)="updateStatus(gridItem, i)"
-          [ngClass]="getStatusClasses(gridItem.status)"
-        >
-          {{ gridItem.status }}
+    <form
+      *ngIf="currentGrid && (showForm || currentGrid?.id)"
+      #form="ngForm"
+      (submit)="saveGrid(currentGrid)"
+    >
+      <div class="mb-3 app-name-input">
+        <div class="app-empty-div"></div>
+        <div class="app-name-content">
+          <div>
+            <label for="name">Name:</label>
+          </div>
+          <div>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              [(ngModel)]="currentGrid.name"
+              required
+              maxlength="50"
+            />
+          </div>
+        </div>
+        <div class="app-empty-div"></div>
+      </div>
+
+      <div class="app-grid-status-container">
+        <div class="app-empty-div"></div>
+        <div class="app-status-button-container">
+          <ng-container
+            *ngFor="let gridItem of currentGrid.gridItems; let i = index"
+          >
+            <button
+              class="btn btn-secondary"
+              type="button"
+              [id]="'button-' + (i + 1)"
+              [name]="'button-' + (i + 1)"
+              (click)="updateStatus(gridItem, i)"
+              [ngClass]="getStatusClasses(gridItem.status)"
+            ></button>
+          </ng-container>
+        </div>
+        <div class="app-empty-div"></div>
+      </div>
+
+      <div class="mt-5 app-save-cancel-button-container">
+        <button class="btn btn-success" [disabled]="form.invalid" type="submit">
+          Save
         </button>
-      </ng-container>
-    </div>
-
-    <div>
-      <button class="btn btn-success" [disabled]="form.invalid" type="submit">
-        Save
-      </button>
-      <button class="btn btn-outline-dark" type="button" (click)="cancelGrid()">
-        Cancel
-      </button>
-    </div>
-  </form>
+        <button
+          class="mx-3 btn btn-outline-dark"
+          type="button"
+          (click)="cancelGrid()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+    <hr />
+  </div>
 </div>

@@ -4,12 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'edit-my-grid',
+    redirectTo: 'create-and-edit-my-grid',
     pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: 'edit-my-grid',
+    redirectTo: 'create-and-edit-my-grid',
   },
 ];
 
