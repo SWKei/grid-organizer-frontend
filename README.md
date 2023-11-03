@@ -1,27 +1,43 @@
 # GridOrganizerFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+## Thoughts and ideas
+This Angular frontend application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13 and built to complement the backend project [GridOrganizerBackend](https://github.com/SWKei/GridOrganizerBackend). I have made it responsive so that users can access the application on small devices. 
+Additionally, I have implemented even pagination for the list to handle receiving a long list of data.
 
-## Development server
+### Technical features:
+- Angular 14
+- Angular template form
+- Typescript
+- SCSS
+- Responsive design
+- Bootstrap
+- Ng Bootstrap Pagenation
+- CSS Grid, Flexbox
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Starting the codebase
 
-## Code scaffolding
+### Prerequisites
+Before you start, ensure you have Node.js and npm installed. You can install Node.js and npm globally using the following command:
+```bash
+npm install -g npm
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Tools
+  - [Visual Studio Code](https://code.visualstudio.com/download) (or your preferred code editor)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Setup    
+1. Clone the repository:
+```bash
+git clone https://github.com/SWKei/grid-organizer-frontend.git
+```
+2. Install dependencies:
+```bash
+npm i
+```
+## Building the Application
+To run the application, follow these steps:
+1. Make sure the backedn project [GridOrganizerBackend](https://github.com/SWKei/GridOrganizerBackend) is up and running
+2. Run the following commad: 
+```bash
+npm start
+```
