@@ -17,9 +17,20 @@ Additionally, I have implemented even pagination for the list to handle receivin
 ## Starting the codebase
 
 ### Prerequisites
-Before you start, ensure you have Node.js and npm installed. You can install Node.js and npm globally using the following command:
+Before you start, ensure you have the following software and tools installed:
+- Node.js and npm\
+  You can install Node.js and npm globally using the following command:
 ```bash
 npm install -g npm
+```
+- Angular CLI\
+To install Angular CLI, use the following command:
+```bash
+npm install -g @angular/cli
+```
+- To allow the execution of PowerShell scripts on Windows client computers (Option)
+```bash
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
 ### Tools
