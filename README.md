@@ -8,13 +8,16 @@ Additionally, I have implemented even pagination for the list to handle receivin
 ### Technical features:
 
 - Angular 14
-- Angular template form
 - Typescript
 - SCSS
+- Angular Routing
+- Angular template-driven form
+- RxJS
 - Responsive design
 - Bootstrap
 - Ng Bootstrap Pagenation
 - CSS Grid, Flexbox
+- Unit test
 
 ## Starting the codebase
 
