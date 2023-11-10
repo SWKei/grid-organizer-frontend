@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
 
 import { GridService } from '../services/grid.service';
 import { Grid } from '../models/grid';
