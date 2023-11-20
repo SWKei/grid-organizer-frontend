@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observer } from 'rxjs';
 
 import { GridService } from '../services/grid.service';
 import { Grid } from '../models/grid';
@@ -31,15 +32,25 @@ export class GridComponent implements OnInit {
   }
 
   updateGrid(grid: Grid) {
-    this.gridService.updateGrid(grid).subscribe((grids) => {
-      this.grids = grids;
-    });
+    this.gridService.updateGrid(grid).subscribe({
+      next: (grids: Grid[]) => {
+        this.grids = grids;
+      },
+      error: (error: any) => {
+        window.alert(`Error: ${error.error.message}`);
+      },
+    } as Observer<Grid[]>);
   }
 
   createGrid(grid: Grid) {
-    this.gridService.createGrid(grid).subscribe((grids) => {
-      this.grids = grids;
-    });
+    this.gridService.createGrid(grid).subscribe({
+      next: (grids: Grid[]) => {
+        this.grids = grids;
+      },
+      error: (error: any) => {
+        window.alert(`Error: ${error.error.message}`);
+      },
+    } as Observer<Grid[]>);
   }
 
   deleteGrid(grid: Grid) {
